@@ -4,15 +4,13 @@ name: jfrog-repo
 on:
   push:
     branches:
-      - 'main'
-
+      - main
+  workflow_dispatch:
 jobs:
   jfrog-repo-job:
     steps:
       - name: checkout-source-code
         uses: cloudbees-io/checkout@v1
-  
-      # Download file "/example-repo-local/jfrogtest/test.zip" from artifactory repository "example-repo-local" to local "/download/jfrog_repo_test.zip"
       - name: jfrog-actions-workflow-download-file
         uses: cloudbees-io/jfrog-artifactory-download-file@v1.0.14
         with:
